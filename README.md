@@ -1,8 +1,14 @@
 # BetterBags - Openable Filters
 
-[![Issues](https://img.shields.io/github/issues/wutname1/BetterBags-Openable?style=for-the-badge)](https://github.com/Wutname1/BetterBags-Openable/issues)
+> **This addon has been merged into [Lib's - Item Highlighter](https://github.com/spartanui-wow/Libs-ItemHighlighter).** New releases of BetterBags-Openable are now published from the Libs-ItemHighlighter repository. All features from this addon are included, plus bag highlighting, animations, and support for multiple bag addons.
+>
+> **Existing users**: Updates will continue to be published to CurseForge and Wago under the BetterBags-Openable name. No action is needed on your part.
+
+---
+
+[![Issues](https://img.shields.io/github/issues/spartanui-wow/Libs-ItemHighlighter?style=for-the-badge)](https://github.com/spartanui-wow/Libs-ItemHighlighter/issues)
 [![Discord](https://img.shields.io/discord/265564257347829771.svg?logo=discord&style=for-the-badge)](https://discord.gg/Qc9TRBv)
-[![GitHub release](https://img.shields.io/github/release/wutname1/BetterBags-Openable.svg?&style=for-the-badge)](https://www.curseforge.com/wow/addons/betterbags-openable-items)
+[![GitHub release](https://img.shields.io/github/release/spartanui-wow/Libs-ItemHighlighter.svg?&style=for-the-badge)](https://www.curseforge.com/wow/addons/libs-itemhighlighter)
 
 ## Overview
 
@@ -39,7 +45,7 @@ The addon supports localization for German (deDE), Spanish (esES), and French (f
 
 ## Contributing
 
-If you encounter any issues or have suggestions for improvements, please open an issue on our [GitHub repository](https://github.com/Wutname1/BetterBags-Openable/issues).
+This addon is now maintained in the [Libs-ItemHighlighter repository](https://github.com/spartanui-wow/Libs-ItemHighlighter). Please open issues and PRs there.
 
 ## Support
 
