@@ -17,7 +17,7 @@ devMode = true
 
 ---@class Profile
 local profile = {
-	CategoryColor = {r = 0.17, g = 0.93, b = 0.93, a = 1},
+	CategoryColor = { r = 0.17, g = 0.93, b = 0.93, a = 1 },
 	FilterGenericUse = false,
 	FilterToys = true,
 	FilterAppearance = true,
@@ -26,7 +26,7 @@ local profile = {
 	FilterCompanion = true,
 	FilterCurios = true,
 	FilterKnowledge = true,
-	CreatableItem = true
+	CreatableItem = true,
 }
 
 --Get Locale
@@ -35,20 +35,20 @@ local Localized = {
 		['Use: Teaches you how to summon this mount'] = 'Benutzen: Lehrt Euch, dieses Reittier herbeizurufen',
 		['Use: Collect the appearance'] = 'Benutzen: Sammelt das Aussehen',
 		['reputation with'] = 'Ruf bei',
-		['reputation towards'] = 'Ruf bei'
+		['reputation towards'] = 'Ruf bei',
 	},
 	esES = {
 		['Use: Teaches you how to summon this mount'] = 'Uso: Te enseña a invocar esta montura',
 		['Use: Collect the appearance'] = 'Uso: Recoge la apariencia',
 		['reputation with'] = 'reputación con',
-		['reputation towards'] = 'reputación hacia'
+		['reputation towards'] = 'reputación hacia',
 	},
 	frFR = {
 		['Use: Teaches you how to summon this mount'] = 'Utilisation: Vous apprend à invoquer cette monture',
 		['Use: Collect the appearance'] = "Utilisation: Collectionnez l'apparence",
 		['reputation with'] = 'réputation auprès',
-		['reputation towards'] = 'réputation envers'
-	}
+		['reputation towards'] = 'réputation envers',
+	},
 }
 
 local Locale = GetLocale()
@@ -77,8 +77,8 @@ local options = {
 				return addon.DB.CategoryColor.r, addon.DB.CategoryColor.g, addon.DB.CategoryColor.b
 			end,
 			set = function(_, r, g, b)
-				addon.DB.CategoryColor = {r = r, g = g, b = b, a = 1}
-			end
+				addon.DB.CategoryColor = { r = r, g = g, b = b, a = 1 }
+			end,
 		},
 		Modes = {
 			type = 'group',
@@ -97,67 +97,67 @@ local options = {
 					width = 'full',
 					order = 0,
 					name = 'Filter Generic `Use:` Items',
-					desc = 'Filter all items that have a "Use" effect'
+					desc = 'Filter all items that have a "Use" effect',
 				},
 				FilterToys = {
 					type = 'toggle',
 					width = 'full',
 					order = 1,
 					name = 'Filter Toys',
-					desc = 'Filter all items with `' .. ITEM_TOY_ONUSE .. '` in the tooltip'
+					desc = 'Filter all items with `' .. ITEM_TOY_ONUSE .. '` in the tooltip',
 				},
 				FilterMounts = {
 					type = 'toggle',
 					width = 'full',
 					order = 1,
 					name = 'Filter Mounts',
-					desc = 'Filter all items with `' .. GetLocaleString('Use: Teaches you how to summon this mount') .. '` in the tooltip'
+					desc = 'Filter all items with `' .. GetLocaleString('Use: Teaches you how to summon this mount') .. '` in the tooltip',
 				},
 				FilterKnowledge = {
 					type = 'toggle',
 					width = 'full',
 					order = 2,
 					name = 'Knowledge',
-					desc = 'Filter all items with `study to increase` & `Knowledge` in the tooltip'
+					desc = 'Filter all items with `study to increase` & `Knowledge` in the tooltip',
 				},
 				FilterCompanion = {
 					type = 'toggle',
 					width = 'full',
 					order = 2,
 					name = 'Pets',
-					desc = 'Filter all items with `companion` in the tooltip'
+					desc = 'Filter all items with `companion` in the tooltip',
 				},
 				FilterCurios = {
 					type = 'toggle',
 					width = 'full',
 					order = 2,
 					name = 'Curios',
-					desc = 'Filter all items with `Curios` in the tooltip'
+					desc = 'Filter all items with `Curios` in the tooltip',
 				},
 				FilterAppearance = {
 					type = 'toggle',
 					width = 'full',
 					order = 2,
 					name = 'Filter Appearance Items',
-					desc = 'Filter all items with `' .. ITEM_COSMETIC_LEARN .. '` in the tooltip'
+					desc = 'Filter all items with `' .. ITEM_COSMETIC_LEARN .. '` in the tooltip',
 				},
 				FilterRepGain = {
 					type = 'toggle',
 					width = 'full',
 					order = 2,
 					name = 'Reputaion Gain Items',
-					desc = 'Filter all items with `' .. ITEM_SPELL_TRIGGER_ONUSE .. '` and `' .. REP_USE_TEXT .. '` in the tooltip'
+					desc = 'Filter all items with `' .. ITEM_SPELL_TRIGGER_ONUSE .. '` and `' .. REP_USE_TEXT .. '` in the tooltip',
 				},
 				CreatableItem = {
 					type = 'toggle',
 					width = 'full',
 					order = 3,
 					name = 'Filter Creatable Items',
-					desc = 'Filter all items with `' .. ITEM_CREATE_LOOT_SPEC_ITEM .. '` in the tooltip'
-				}
-			}
-		}
-	}
+					desc = 'Filter all items with `' .. ITEM_CREATE_LOOT_SPEC_ITEM .. '` in the tooltip',
+				},
+			},
+		},
+	},
 }
 
 local function Log(msg)
@@ -184,7 +184,7 @@ end
 local SearchItems = {
 	'Open the container',
 	'Use: Open',
-	ITEM_OPENABLE
+	ITEM_OPENABLE,
 }
 
 ---@param data ItemData
@@ -197,10 +197,10 @@ local function filter(data)
 
 	local Consumable = data.itemInfo.itemType == 'Consumable' or data.itemInfo.itemSubType == 'Consumables'
 	if
-		(data.itemInfo.isCraftingReagent or Consumable or data.itemInfo.itemType == 'Quest' or data.itemInfo.itemType == 'Battle Pets') and
-			not data.containerInfo.hasLoot and
-			not data.transmogInfo.hasTransmog
-	 then
+		(data.itemInfo.isCraftingReagent or Consumable or data.itemInfo.itemType == 'Quest' or data.itemInfo.itemType == 'Battle Pets')
+		and not data.containerInfo.hasLoot
+		and not data.transmogInfo.hasTransmog
+	then
 		if Consumable and data.itemInfo.itemSubType and string.find(data.itemInfo.itemSubType, 'Curio') and addon.DB.FilterCurios then
 			return PREFIX() .. 'Curio'
 		end
@@ -254,9 +254,10 @@ local function filter(data)
 		end
 
 		if
-			addon.DB.FilterRepGain and (string.find(LineText, REP_USE_TEXT) or string.find(LineText, GetLocaleString('reputation towards')) or string.find(LineText, GetLocaleString('reputation with'))) and
-				string.find(LineText, ITEM_SPELL_TRIGGER_ONUSE)
-		 then
+			addon.DB.FilterRepGain
+			and (string.find(LineText, REP_USE_TEXT) or string.find(LineText, GetLocaleString('reputation towards')) or string.find(LineText, GetLocaleString('reputation with')))
+			and string.find(LineText, ITEM_SPELL_TRIGGER_ONUSE)
+		then
 			return PREFIX() .. 'Reputation'
 		end
 
@@ -272,7 +273,7 @@ end
 
 function addon:OnInitialize()
 	--Setup DB
-	self.DataBase = LibStub('AceDB-3.0'):New('BetterBagsOpenableDB', {profile = profile}, true)
+	self.DataBase = LibStub('AceDB-3.0'):New('BetterBagsOpenableDB', { profile = profile }, true)
 	self.DB = self.DataBase.profile ---@type Profile
 
 	config:AddPluginConfig('Openable', options)
